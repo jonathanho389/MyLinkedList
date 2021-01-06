@@ -7,4 +7,14 @@ public class Node{
   public String get(){
     return data;
   }
+
+  public String set(String value){
+    String temp = data;
+    data = value;
+    return temp;
+  }
+
+  public Node getNext(){
+    return next;
+  }
 }
