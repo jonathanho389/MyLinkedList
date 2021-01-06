@@ -17,4 +17,20 @@ public class Node{
   public Node getNext(){
     return next;
   }
+
+  public Node setNext(Node value){
+    Node temp = next;
+    next = value;
+    return temp;
+  }
+
+  public Node getPrev(){
+    return prev;
+  }
+
+  public Node setPrev(Node value){
+    Node temp = prev;
+    prev = value;
+    return temp;
+  }
 }
