@@ -4,7 +4,7 @@ public class Node{
   public Node(String value){
     data = value;
   }
-  public String get(){
+  public String getData(){
     return data;
   }
 
