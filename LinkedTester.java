@@ -9,14 +9,11 @@ public class LinkedTester{
     bruh.add("git");
     bruh.add(0, "ricks");
     bruh.add(3, "go");
-    bruh.add(9, "clink");
-    System.out.println(bruh.get(0));
-    System.out.println(bruh.get(1));
-    System.out.println(bruh.get(2));
+    bruh.add(8, "clink");
+    System.out.println(bruh.toString());
+    bruh.set(3, "pochinko");
     System.out.println(bruh.get(3));
-    System.out.println(bruh.get(4));
-    System.out.println(bruh.get(5));
-    System.out.println(bruh.get(6));
+    System.out.println(bruh.toString());
   }
 
 }
