@@ -74,10 +74,10 @@ public class MyLinkedList{
   }
 
   public String set(int index, String value){
-    Node current = getNode(index - 1);
+    Node current = getNode(index);
     Node temp = current;
     Node news = new Node(value);
-    current.setNext(news);
+    current.set(value);
     return temp.getData();
   }
 
