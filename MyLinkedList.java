@@ -10,6 +10,9 @@ public class MyLinkedList{
   }
 
   public String get(int index){
+    if(index < 0 || index > size){
+      throw new IndexOutOfBoundsException("Index" + index + "is out of bounds");
+    }
     Node next = start;
     if(index == size - 1){
       return end.getData();
@@ -21,6 +24,9 @@ public class MyLinkedList{
   }
 
   private Node getNode(int index){
+    if(index < 0 || index > size){
+      throw new IndexOutOfBoundsException("Index" + index + "is out of bounds");
+    }
     Node next = start;
     if(index == size - 1){
       return end;
@@ -47,6 +53,9 @@ public class MyLinkedList{
   }
 
   public void add(int index, String value){
+    if(index < 0 || index > size){
+      throw new IndexOutOfBoundsException("Index" + index + "is out of bounds");
+    }
     Node next = new Node(value);
     if(size == 0){
       start = next;
@@ -74,6 +83,9 @@ public class MyLinkedList{
   }
 
   public String set(int index, String value){
+    if(index < 0 || index > size){
+      throw new IndexOutOfBoundsException("Index" + index + "is out of bounds");
+    }
     Node current = getNode(index);
     Node temp = current;
     Node news = new Node(value);
