@@ -9,18 +9,36 @@ public class MyLinkedList{
     return size;
   }
 
+
+  public String get(int index){
+    Node next = start;
+    if(index == size - 1){
+      return end.get();
+    }
+    for(int i = 0;i < index - 1;i++){
+      next = next.getNext();
+    }
+    return next.get();
+  }
+
+
   public boolean add(String value){
     Node next = new Node(value);
     if(size == 0){
       start = next;
       end = next;
-      size++;
     }
     else{
-      start.setNext(next);
+      next.setPrev(end);
+      end.setNext(next);
+      end = next;
     }
+    size++;
     return true;
   }
 
-  
+  public void add(int index, String value){
+    Node next = new Node(value);
+
+  }
 }
