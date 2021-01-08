@@ -97,10 +97,30 @@ public class MyLinkedList{
     String finale = "";
     Node next = start;
     for(int i = 0;i < size - 1;i++){
-      finale += next.getData() + ",";
+      finale += next.getData() + ", ";
       next = next.getNext();
     }
     return "[" + finale + get(size - 1) + "]";
+  }
+
+  public String toStringReversed(){
+    String finale = "";
+    Node next = end;
+    for(int i = size;i > 1;i--){
+      finale += next.getData() + ", ";
+      next = next.getPrev();
+    }
+    return "[" + finale + get(0) + "]";
+  }
+
+  public String remove(int index){
+    Node ahead = getNode(index + 1);
+    Node behind = getNode(index - 1);
+    Node middle = getNode(index);
+    ahead.setPrev(behind);
+    behind.setNext(ahead);
+    size--;
+    return middle.getData();
   }
 
 }
