@@ -6,6 +6,8 @@ public class LinkedTester{
     bruh.add("rocket");
     bruh.add("neon");
     bruh.add("place");
+    bruh.add("torch");
+    bruh.add("room");
     bruh.add(0, "ricks");
     bruh.add(3, "go");
     System.out.println(bruh.toString());
@@ -18,6 +20,10 @@ public class LinkedTester{
     one.add("punch");
     one.remove(0);
     System.out.println(one.toString());
+    bruh.remove(0);
+    System.out.println(bruh.toString());
+    bruh.remove(5);
+    System.out.println(bruh.toString());
   }
 
 }

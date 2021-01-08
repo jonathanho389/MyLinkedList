@@ -111,27 +111,43 @@ public class MyLinkedList{
   public String toStringReversed(){
     String finale = "";
     Node next = end;
-    for(int i = size;i > 1;i--){
-      finale += next.getData() + ", ";
-      next = next.getPrev();
+    if(size == 0){
+      return "[]";
+    }
+    else{
+      for(int i = size;i > 1;i--){
+        finale += next.getData() + ", ";
+        next = next.getPrev();
+      }
     }
     return "[" + finale + get(0) + "]";
   }
 
   public String remove(int index){
+    Node ahead = new Node("temp");
+    Node behind = new Node("temp");
+    Node middle = new Node("temp");
     if(size == 1){
       start = null;
       end = null;
     }
+    else if(index == 0){
+      start = start.getNext();
+      start.setPrev(null);
+    }
+    else if(index == size - 1){
+      end = end.getPrev();
+      end.setNext(null);
+    }
     else{
-      Node ahead = getNode(index + 1);
-      Node behind = getNode(index - 1);
-      Node middle = getNode(index);
+      ahead = getNode(index + 1);
+      behind = getNode(index - 1);
+      middle = getNode(index);
       ahead.setPrev(behind);
       behind.setNext(ahead);
     }
     size--;
-    return "temp";
+    return middle.getData();
   }
 
 }
