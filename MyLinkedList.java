@@ -124,6 +124,9 @@ public class MyLinkedList{
   }
 
   public String remove(int index){
+    if(index < 0 || index > size){
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+    }
     Node ahead = new Node("temp");
     Node behind = new Node("temp");
     Node middle = new Node("temp");
