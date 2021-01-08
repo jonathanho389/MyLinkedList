@@ -1,6 +1,7 @@
 public class LinkedTester{
   public static void main(String[] args) {
     MyLinkedList bruh = new MyLinkedList();
+    MyLinkedList one = new MyLinkedList();
     bruh.add("pain");
     bruh.add("rocket");
     bruh.add("neon");
@@ -14,6 +15,9 @@ public class LinkedTester{
     System.out.println(bruh.toStringReversed());
     bruh.remove(3);
     System.out.println(bruh.toString());
+    one.add("punch");
+    one.remove(0);
+    System.out.println(one.toString());
   }
 
 }

@@ -96,10 +96,15 @@ public class MyLinkedList{
   public String toString(){
     String finale = "";
     Node next = start;
-    for(int i = 0;i < size - 1;i++){
+    if(size == 0){
+      return "[]";
+    }
+    else{
+      for(int i = 0;i < size - 1;i++){
       finale += next.getData() + ", ";
       next = next.getNext();
     }
+  }
     return "[" + finale + get(size - 1) + "]";
   }
 
@@ -114,13 +119,19 @@ public class MyLinkedList{
   }
 
   public String remove(int index){
-    Node ahead = getNode(index + 1);
-    Node behind = getNode(index - 1);
-    Node middle = getNode(index);
-    ahead.setPrev(behind);
-    behind.setNext(ahead);
+    if(size == 1){
+      start = null;
+      end = null;
+    }
+    else{
+      Node ahead = getNode(index + 1);
+      Node behind = getNode(index - 1);
+      Node middle = getNode(index);
+      ahead.setPrev(behind);
+      behind.setNext(ahead);
+    }
     size--;
-    return middle.getData();
+    return "temp";
   }
 
 }
