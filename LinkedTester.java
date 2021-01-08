@@ -24,6 +24,11 @@ public class LinkedTester{
     System.out.println(bruh.toString());
     bruh.remove(5);
     System.out.println(bruh.toString());
+    one.add("punch");
+    one.add("man");
+    bruh.extend(one);
+    System.out.println(bruh.toString());
+    System.out.println(one.toString());
   }
 
 }
