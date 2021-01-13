@@ -10,7 +10,7 @@ public class MyLinkedList{
   }
 
   public String get(int index){
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
     }
     Node next = start;
@@ -20,11 +20,14 @@ public class MyLinkedList{
     for(int i = 0;i < index;i++){
       next = next.getNext();
     }
+    if(next.getData() == null){
+      throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+    }
     return next.getData();
   }
 
   private Node getNode(int index){
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
     }
     Node next = start;
@@ -83,14 +86,13 @@ public class MyLinkedList{
   }
 
   public String set(int index, String value){
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
     }
     Node current = getNode(index);
-    Node temp = current;
-    Node news = new Node(value);
-    current.set(value);
-    return temp.getData();
+    String temp = current.getData();
+    current.setData(value);
+    return temp;
   }
 
   public String toString(){
@@ -124,12 +126,12 @@ public class MyLinkedList{
   }
 
   public String remove(int index){
-    if(index < 0 || index > size){
+    if(index < 0 || index >= size){
       throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
     }
     Node ahead = new Node("temp");
     Node behind = new Node("temp");
-    Node middle = new Node("temp");
+    Node middle = getNode(index);
     if(size == 1){
       start = null;
       end = null;
@@ -145,7 +147,6 @@ public class MyLinkedList{
     else{
       ahead = getNode(index + 1);
       behind = getNode(index - 1);
-      middle = getNode(index);
       ahead.setPrev(behind);
       behind.setNext(ahead);
     }
@@ -155,10 +156,16 @@ public class MyLinkedList{
 
   public void extend(MyLinkedList other){
     if(other.size() == 0){
-
+    }
+    else if(size == 0){
+      start = other.start;
+      end = other.end;
+      size = other.size;
+      other.size = 0;
     }
     else{
       end.setNext(other.getNode(0));
+      other.start.setPrev(end);
       size += other.size();
       end = other.getNode(other.size - 1);
     }

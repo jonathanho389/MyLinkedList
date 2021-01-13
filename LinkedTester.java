@@ -8,10 +8,11 @@ public class LinkedTester{
     bruh.add("place");
     bruh.add("torch");
     bruh.add("room");
-    bruh.add(0, "ricks");
+    bruh.add(0, "bruh");
     bruh.add(3, "go");
     System.out.println(bruh.toString());
     bruh.set(3, "pochinko");
+    System.out.println(bruh.set(3, "pochinko"));
     System.out.println(bruh.get(3));
     System.out.println(bruh.toString());
     System.out.println(bruh.toStringReversed());
@@ -27,8 +28,9 @@ public class LinkedTester{
     one.add("punch");
     one.add("man");
     bruh.extend(one);
-    System.out.println(bruh.toString());
     System.out.println(one.toString());
+    System.out.println(bruh.toString());
+    System.out.println(bruh.toStringReversed());
   }
 
 }
